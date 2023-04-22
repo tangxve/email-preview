@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import NavBar from '@/src/components/NavBar'
 import HtmlInput from '@/src/components/HtmlInput'
 import EmailInput from '@/src/components/EmailInput'
+import axios from 'axios'
 
 export default function Home() {
   // 邮箱
@@ -10,19 +11,22 @@ export default function Home() {
 
   const [html, setHtml] = useState('')
 
-  const onTestEmail = () => {
-    console.log('email', email)
-    console.log('html', html)
 
-    if(!email) {
+  const onSendEmail = async () => {
+    if (!email) {
       alert('请输入邮箱')
       return
     }
 
-    if(!html) {
+    if (!html) {
       alert('请输入html')
       return
     }
+
+    const res = await axios.post('/api/send', {
+      email,
+      html
+    })
   }
 
   // EmailInput change 修改邮箱
@@ -37,7 +41,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col">
-      <NavBar onTestEmail={onTestEmail} />
+      <NavBar onSendEmail={onSendEmail} />
       <div className="p-8">
         <EmailInput email={email} onChange={onEmailChange} />
         <HtmlInput htmlText={html} onChange={onHtmlChange} />

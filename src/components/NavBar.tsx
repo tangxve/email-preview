@@ -1,10 +1,10 @@
 import React from 'react'
 
 interface NavBarProps {
-  onTestEmail: () => void
+  onSendEmail: () => void
 }
 
-const NavBar: React.FC<NavBarProps> = ({ onTestEmail }) => {
+const NavBar: React.FC<NavBarProps> = ({ onSendEmail }) => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -12,7 +12,7 @@ const NavBar: React.FC<NavBarProps> = ({ onTestEmail }) => {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
-          <li><a onClick={onTestEmail}>发送到测试邮箱</a></li>
+          <li><a onClick={onSendEmail}>发送到测试邮箱</a></li>
         </ul>
       </div>
     </div>
