@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <NavBar onSendEmail={onSendEmail} />
-      <div className="p-8">
+      <div className="p-8 flex-auto flex flex-col">
         <EmailInput email={email} onChange={onEmailChange} />
         <HtmlInput htmlText={html} onChange={onHtmlChange} />
       </div>
