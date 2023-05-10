@@ -9,6 +9,9 @@ const sendEmail = async (htmlContent: string, to: string) => {
       user: 'ee_review@163.com',
       pass: 'WDBFHBUIDNIVAHSL',
     },
+    tls: {
+      rejectUnauthorized: false,
+    }
   })
 
   const mailOptions = {
